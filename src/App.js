@@ -31,13 +31,17 @@ export default function App() {
         })
     }, [begin])
     
-   /* function checkAnswers() {
+     function startQuiz() {
+        setBegin(true)
+    }
+
+    function checkAnswers() {
         const correctAnswers = quiz.map(item => item.correctAnswer)
         const userAnswers = quiz.map(item => item.selectedAnswer)
         
         let score = 0
         for(let i = 0; i < quiz.answers.length; i++) {
-            if(userAnswer[i] === correctAnswer[i]) {
+            if(userAnswers[i] === correctAnswers[i]) {
                 score++
             }
         }
@@ -45,12 +49,10 @@ export default function App() {
             ...prev,
             score: score
         }))
-    } */
+    } 
     
     
-    function startQuiz() {
-        setBegin(true)
-    }
+   
     
     
     return(
@@ -62,7 +64,7 @@ export default function App() {
             {begin && 
                 <Quiz 
                     quiz={quiz}
-                    //checkAnswers={checkAnswers}
+                    checkAnswers={checkAnswers}
                 />}
         
         
