@@ -30,7 +30,7 @@ export default function App() {
             })))
         })
     }, [begin])
-    
+
      function startQuiz() {
         setBegin(true)
     }
@@ -51,7 +51,23 @@ export default function App() {
         }))
     } 
     
-    
+    function compileUserAnswers() {
+        const newArray = []
+        const { name, type, value, checked } = event.target
+        
+        quiz.forEach(item => {
+            if (item.id === Number(name)) {
+                item = {
+                    ...item,
+                    selectedAnswer: value
+                }
+                newArray.push(item)
+            } else {
+                newArray.push(item)
+            }
+        })
+        setQuiz(newArray)
+    }
    
     
     
