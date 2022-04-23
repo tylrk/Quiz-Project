@@ -20,7 +20,8 @@ export default function Quiz(props) {
             {quizElements}
             
             <div className="footer">
-                <button className="check-button" onClick={props.checkAnswers}>Check Answers</button>
+                <button className="check-button" 
+                    onClick={props.checkAnswers}>Check Answers</button>
             </div>
         </div>
         
