@@ -51,7 +51,7 @@ export default function App() {
         }))
     } 
     
-    function compileUserAnswers() {
+    /*function compileUserAnswers() {
         const newArray = []
         const { name, type, value, checked } = event.target
         
@@ -67,7 +67,7 @@ export default function App() {
             }
         })
         setQuiz(newArray)
-    }
+    }*/
    
     
     
