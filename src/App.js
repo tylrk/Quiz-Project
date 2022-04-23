@@ -80,7 +80,7 @@ export default function App() {
             {begin && 
                 <Quiz 
                     quiz={quiz}
-                    checkAnswers={checkAnswers}
+                    //checkAnswers={checkAnswers}
                 />}
         
         
