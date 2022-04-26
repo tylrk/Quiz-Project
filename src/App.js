@@ -13,7 +13,7 @@ export default function App() {
         correctAnswer: "",
         selectedAnswer: "",
         id: "",
-        score: 0
+        score: null
     }])
     
     useEffect(() => {
@@ -42,7 +42,7 @@ export default function App() {
         let score = 0
         for(let i = 0; i < quiz.answers.length; i++) {
             if(userAnswers[i] === correctAnswers[i]) {
-                score++
+                score += 1
             }
         }
         setQuiz(prev => ({
@@ -51,7 +51,7 @@ export default function App() {
         }))
     } 
     
-    /*function compileUserAnswers() {
+    function compileUserAnswers(event) {
         const newArray = []
         const { name, type, value, checked } = event.target
         
@@ -67,9 +67,12 @@ export default function App() {
             }
         })
         setQuiz(newArray)
-    }*/
+    }
    
-    
+    function playAgain() {
+        setCount(prev => prev + 1)
+        setBegin(prev => !prev)
+    }
     
     return(
         <main className="container">
@@ -80,7 +83,10 @@ export default function App() {
             {begin && 
                 <Quiz 
                     quiz={quiz}
-                    //checkAnswers={checkAnswers}
+                    checkAnswers={checkAnswers}
+                    compileUserAnswers={compileUserAnswers}
+                    score={quiz.score}
+                    playAgain={playAgain}
                 />}
         
         

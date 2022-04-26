@@ -13,7 +13,7 @@ body {
 
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -120,4 +120,10 @@ body {
 
 .check-button:focus {
     outline: none;
+}
+
+.result {
+    margin-top: 50px;
+    font-size: 15px;
+    margin-right: 25px;
 }

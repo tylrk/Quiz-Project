@@ -10,6 +10,8 @@ export default function Quiz(props) {
             answers={item.answers}
             correctAnswer={item.correctAnswer}
             selectedAnswer={item.selectedAnswer}
+            compileUserAnswers={props.compileUserAnswers}
+            score={props.score}
         />
     ))
     
@@ -20,8 +22,20 @@ export default function Quiz(props) {
             {quizElements}
             
             <div className="footer">
+                {
+                    (props.score === null) &&
                 <button className="check-button" 
                     onClick={props.checkAnswers}>Check Answers</button>
+                }
+                {
+                    (props.score !== null) &&
+                    <>
+                    <p className="result">
+                        You scored {props.score}/{props.quiz.length} correct answers
+                        </p>
+                        <button className="check-button" onClick={props.playAgain}>Play again</button>
+                    </>
+                }
             </div>
         </div>
         
