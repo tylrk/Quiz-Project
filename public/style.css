@@ -81,6 +81,7 @@ body {
     flex-wrap: wrap;
     border-bottom: 0.8px solid #DBDEF0;
     padding-bottom: 12px;
+    max-width: 600px;
 }
 
 .answer-label {
