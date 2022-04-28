@@ -6,6 +6,7 @@ export default function Quiz(props) {
     const quizElements = props.quiz.map(item => (
         <Question 
             key={item.id}
+            name={item.id}
             question={item.question}
             answers={item.answers}
             correctAnswer={item.correctAnswer}
