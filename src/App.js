@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react"
 import Start from "./components/Start"
-import Question from "./components/Question"
 import Quiz from "./components/Quiz"
 import {nanoid} from "nanoid"
 
@@ -29,7 +28,7 @@ export default function App() {
                 id: nanoid()
             })))
         })
-    }, [begin])
+    }, [count])
 
      function startQuiz() {
         setBegin(true)
@@ -42,7 +41,7 @@ export default function App() {
         let score = 0
         for(let i = 0; i < quiz.answers.length; i++) {
             if(userAnswers[i] === correctAnswers[i]) {
-                score += 1
+                score++
             }
         }
         setQuiz(prev => ({
@@ -52,21 +51,12 @@ export default function App() {
     } 
     
     function compileUserAnswers(event) {
-        const newArray = []
-        const { name, type, value, checked } = event.target
-        
-        quiz.forEach(item => {
-            if (item.id === Number(name)) {
-                item = {
-                    ...item,
-                    selectedAnswer: value
-                }
-                newArray.push(item)
-            } else {
-                newArray.push(item)
-            }
-        })
-        setQuiz(newArray)
+        const { name, value } = event.target
+
+        setQuiz(prevState => ({
+            ...prevState,
+            [name]: value
+        }))
     }
    
     function playAgain() {
