@@ -14,25 +14,25 @@ export default function Question(props) {
         const isCorrect = answer === props.correctAnswer
                         
         const style = {
-            backgroundColor: isCorrect ? "#94D7A2"
-                : isChecked ? "#F8BCBC"
-                : null,
-            borderColor: (isCorrect || isChecked) ? "transparent" : null,
-            opacity: !(isCorrect || isChecked) ? 0.5 : null
+           // backgroundColor: isCorrect ? "#94D7A2"
+             //   : isChecked ? "#F8BCBC"
+               // : null,
+            //borderColor: (isCorrect || isChecked) ? "transparent" : null,
+            //opacity: !(isCorrect || isChecked) ? 0.5 : null
         }
         
         return (
             <div key={id}>
             
                 <input
-                    id={id}
+                    id={props.id}
                     type="radio"
                     className="answer"
                     value={answer}
                     name={props.name}
-                    onChange={props.compileUserAnswers}
+                    onChange={props.handleChange}
                     checked={isChecked}
-                    disabled={props.score !== null}
+                    // disabled={props.score !== null}
                 />
                 
                 <label

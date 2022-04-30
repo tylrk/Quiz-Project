@@ -6,7 +6,7 @@ import {nanoid} from "nanoid"
 export default function App() {
     const [begin, setBegin] = useState(false)
     const [count, setCount] = useState(0)
-    const [quiz, setQuiz] = React.useState([{
+    const [quiz, setQuiz] = useState([{
         question: "",
         answers: "",
         correctAnswer: "",
@@ -39,7 +39,7 @@ export default function App() {
         const userAnswers = quiz.map(item => item.selectedAnswer)
         
         let score = 0
-        for(let i = 0; i < quiz.answers.length; i++) {
+        for(let i = 0; i < quiz.userAnswers.length; i++) {
             if(userAnswers[i] === correctAnswers[i]) {
                 score++
             }
@@ -50,13 +50,21 @@ export default function App() {
         }))
     } 
     
-    function compileUserAnswers(event) {
-        const { name, value } = event.target
-
-        setQuiz(prevState => ({
-            ...prevState,
-            [name]: value
-        }))
+    function handleChange(event) {
+        const newArray = []
+        const {name, value} = event.target
+        quiz.forEach(item => {
+            if (item.id === name) {
+                item = {
+                    ...item,
+                    selectedAnswer: value
+                }
+                newArray.push(item)
+            } else {
+                newArray.push(item)
+            }
+        })
+        setQuiz(newArray)
     }
    
     function playAgain() {
@@ -74,7 +82,7 @@ export default function App() {
                 <Quiz 
                     quiz={quiz}
                     checkAnswers={checkAnswers}
-                    compileUserAnswers={compileUserAnswers}
+                    handleChange={handleChange}
                     score={quiz.score}
                     playAgain={playAgain}
                 />}

@@ -11,7 +11,7 @@ export default function Quiz(props) {
             answers={item.answers}
             correctAnswer={item.correctAnswer}
             selectedAnswer={item.selectedAnswer}
-            compileUserAnswers={props.compileUserAnswers}
+            handleChange={props.handleChange}
             score={props.score}
         />
     ))
