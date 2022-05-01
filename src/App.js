@@ -5,15 +5,9 @@ import {nanoid} from "nanoid"
 
 export default function App() {
     const [begin, setBegin] = useState(false)
-    const [count, setCount] = useState(0)
-    const [quiz, setQuiz] = useState([{
-        question: "",
-        answers: "",
-        correctAnswer: "",
-        selectedAnswer: "",
-        id: "",
-        score: null
-    }])
+    const [count, setCount] = useState(() => 0)
+    const [score, setScore] = useState(0) 
+    const [quiz, setQuiz] = useState([])
     
     useEffect(() => {
         fetch("https://opentdb.com/api.php?amount=5")
@@ -33,26 +27,11 @@ export default function App() {
      function startQuiz() {
         setBegin(true)
     }
-
-    function checkAnswers() {
-        const correctAnswers = quiz.map(item => item.correctAnswer)
-        const userAnswers = quiz.map(item => item.selectedAnswer)
-        
-        let score = 0
-        for(let i = 0; i < quiz.userAnswers.length; i++) {
-            if(userAnswers[i] === correctAnswers[i]) {
-                score++
-            }
-        }
-        setQuiz(prev => ({
-            ...prev,
-            score: score
-        }))
-    } 
     
     function handleChange(event) {
         const newArray = []
         const {name, value} = event.target
+       
         quiz.forEach(item => {
             if (item.id === name) {
                 item = {
@@ -66,11 +45,26 @@ export default function App() {
         })
         setQuiz(newArray)
     }
+
+    function checkAnswers() {
+        const correctAnswers = quiz.map(item => item.correctAnswer)
+        const userAnswers = quiz.map(item => item.selectedAnswer)
+        
+        let score = 0
+        for(let i = 0; i < correctAnswers.length; i++) {
+            if(userAnswers[i] === correctAnswers[i]) {
+                score++
+            }
+        }
+        setScore(score)
+    } 
    
     function playAgain() {
         setCount(prev => prev + 1)
         setBegin(prev => !prev)
     }
+
+    console.log(quiz)
     
     return(
         <main className="container">
@@ -83,7 +77,7 @@ export default function App() {
                     quiz={quiz}
                     checkAnswers={checkAnswers}
                     handleChange={handleChange}
-                    score={quiz.score}
+                    score={score}
                     playAgain={playAgain}
                 />}
         
