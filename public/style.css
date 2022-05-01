@@ -87,19 +87,34 @@ body {
 .answer-label {
     min-width: 70px;
     min-height: 20px;
-    border: 0.794239px solid #4D5B9E;
+    border: 0.8px solid #4D5B9E;
     box-sizing: border-box;
-    border-radius: 7.94239px;
+    border-radius: 8px;
     padding: 0.4em 0.8em;
     background: transparent;
     font-family: 'Inter';
 }
 
-/*input[type=radio] {
-    position: fixed;
+input[type=radio] {
+    position: absolute;
     opacity: 0;
-    pointer-events: none;
-}*/
+}
+
+input[type=radio] + .answer-label {
+    cursor: pointer;
+    
+}
+
+.answer:checked + label {
+    background: #D6DBF5;
+    border-color: transparent;
+}
+
+.correct.answer + label {
+    background: #94D7A2;
+    border-color: transparent;
+}
+
 
 .footer {
     display: flex;

@@ -24,14 +24,14 @@ export default function Quiz(props) {
             
             <div className="footer">
                 {
-                    (props.score === 0) &&
+                    (props.score === null) &&
                 <button className="check-button" 
                     onClick={props.checkAnswers}>Check Answers</button>
                 }
 
 
                 {
-                    (props.score !== 0) &&
+                    (props.score !== null) &&
                     <>
                     <p className="result">
                         You scored {props.score}/{props.quiz.length} correct answers

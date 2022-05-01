@@ -6,7 +6,7 @@ import {nanoid} from "nanoid"
 export default function App() {
     const [begin, setBegin] = useState(false)
     const [count, setCount] = useState(() => 0)
-    const [score, setScore] = useState(0) 
+    const [score, setScore] = useState(null) 
     const [quiz, setQuiz] = useState([])
     
     useEffect(() => {
@@ -62,6 +62,8 @@ export default function App() {
     function playAgain() {
         setCount(prev => prev + 1)
         setBegin(prev => !prev)
+        setScore(null)
+        setQuiz([])
     }
 
     console.log(quiz)
