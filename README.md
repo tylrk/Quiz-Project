@@ -1,6 +1,6 @@
 # Quiz Project
 
-I created this project as my first major React project. It is a quiz app that pulls question and answers from an API and calculated the number of questions answered correctly. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I created this project as my first major React project. It is a quiz app that pulls questions and answers from an API and calculates the number of questions answered correctly. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
