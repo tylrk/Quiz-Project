@@ -1,6 +1,14 @@
 # Quiz Project
 
-I created this project as my first major React project. It is a quiz app that pulls questions and answers from an API and calculates the number of questions answered correctly. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I created this quiz app as my first major React project. The key features are as follows:
+
+- Pulls questions and answers from the Open Trivia Database API
+- Calculates the number of questions answered correctly
+- Handles any number of questions (can be changed by accessing and updating the API url)
+- Dynamically styled radio buttons depending on user selection
+- Includes the ability to restart the quiz and play again
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
